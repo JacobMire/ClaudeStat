@@ -92,7 +92,7 @@ function _renderAndAnimate(data) {
   counters.forEach(counter => {
     const target = Number(counter.getAttribute('data-target'));
     if (hasRenderedUsage) {
-      counter.textContent = target;
+      counter.textContent = `${target}%`;
     } else {
       countUp(counter, target);
     }
