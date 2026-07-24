@@ -16,6 +16,12 @@ A sleek, premium, and lightning-fast Chrome Extension that lets you track your C
 - **Offline Resilience:** Gracefully handles offline scenarios, displaying your last-known cached data with a helpful "Offline" badge.
 - **Zero Configuration:** Automatically piggybacks off your existing Claude.ai web session. No API keys needed!
 
+## 🤔 Why use ClaudeStat?
+
+If you are a heavy Claude Pro user (especially for coding), you likely know the frustration of getting blindsided by the "10 messages remaining" warning right in the middle of a deep work session. 
+
+Currently, checking your exact usage requires manually interrupting your workflow to navigate through `Settings > Usage`. ClaudeStat solves this UX gap by putting a persistent, lightweight tracker right in your toolbar. While Anthropic's API does not expose exact message counts, ClaudeStat gives you **real-time percentage tracking and precise reset countdowns** so you can seamlessly pace your sessions without ever leaving your current tab.
+
 ## 🚀 Installation
 
 Because this extension interfaces directly with Claude's internal web API, it is intended to be sideloaded rather than installed from the Chrome Web Store.
