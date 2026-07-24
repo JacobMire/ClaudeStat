@@ -2,7 +2,9 @@
 
 A sleek, premium, and lightning-fast Chrome Extension that lets you track your Claude.ai Pro usage directly from your browser toolbar. No more guessing when your limits reset!
 
-![Extension Demo/Screenshot Placeholder](https://via.placeholder.com/800x400.png?text=Claude+Usage+Monitor+Demo+Screenshot)
+<p align="center">
+  <img src="image.png" width="350" alt="Claude Usage Monitor Demo">
+</p>
 
 ## ✨ Features
 
@@ -13,12 +15,6 @@ A sleek, premium, and lightning-fast Chrome Extension that lets you track your C
 - **Premium UI/UX:** Designed with a stunning, native-feeling dark mode, buttery smooth entrance animations, and Apple-Watch style SVG progress rings.
 - **Offline Resilience:** Gracefully handles offline scenarios, displaying your last-known cached data with a helpful "Offline" badge.
 - **Zero Configuration:** Automatically piggybacks off your existing Claude.ai web session. No API keys needed!
-
-## 📸 Screenshots
-
-| Popup View | Settings Panel |
-| :---: | :---: |
-| ![Popup Placeholder](https://via.placeholder.com/360x400.png?text=Popup+View) | ![Settings Placeholder](https://via.placeholder.com/360x400.png?text=Settings+Panel) |
 
 ## 🚀 Installation
 
