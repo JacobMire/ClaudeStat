@@ -7,8 +7,8 @@ import './messageHandler.js'; // Attach the message listeners
 
 chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason === 'install') {
-    logger.info('Claude Usage Monitor extension installed.');
+    logger.info('ClaudeStat extension installed.');
   } else if (details.reason === 'update') {
-    logger.info('Claude Usage Monitor extension updated.', { previousVersion: details.previousVersion });
+    logger.info('ClaudeStat extension updated.', { previousVersion: details.previousVersion });
   }
 });

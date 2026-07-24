@@ -1,12 +1,11 @@
 # Developer Guide
 
-Welcome to the Claude Usage Monitor source code! This project is intentionally built with **Zero Dependencies**. There is no Webpack, Vite, Babel, TypeScript compiler, or \`node_modules\` folder required.
+Welcome to the ClaudeStat source code! This project is intentionally built with **Zero Dependencies**. There is no Webpack, Vite, Babel, TypeScript compiler, or `node_modules` folder required.
 
 ## Core Philosophy
-1. **ES Modules Only:** All JS files are standard ES Modules. When importing, you **must** include the \`.js\` extension (e.g., \`import { logger } from '../utils/logger.js';\`) because the browser evaluates them natively.
-2. **Vanilla DOM:** We do not use React, Vue, or Svelte. Rendering is handled via template literals in \`renderer.js\`. This keeps the popup payload under 30KB and ensures instant boot times.
+1. **ES Modules Only:** All JS files are standard ES Modules. When importing, you **must** include the `.js` extension (e.g., `import { logger } from '../utils/logger.js';`) because the browser evaluates them natively.
+2. **Vanilla DOM:** We do not use React, Vue, or Svelte. Rendering is handled via template literals in `renderer.js`. This keeps the popup payload under 30KB and ensures instant boot times.
 3. **Strict Separation of Concerns:** 
-   - \`/popup\`: Only handles DOM, events, and CSS.
    - \`/service-worker\`: Only handles \`fetch()\` and network timeouts.
    - \`/lib\`: Contains shared logic, storage abstractions, and the crucial \`usageRepository.js\` which coordinates everything.
 

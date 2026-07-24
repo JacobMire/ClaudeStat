@@ -47,7 +47,7 @@ export function getSettingsHtml(version) {
       
       <!-- About / Footer -->
       <footer style="text-align: center; color: var(--text-tertiary); font-size: 11px; margin-top: 16px;">
-        <div style="font-weight: 600; margin-bottom: 4px; color: var(--text-secondary);">Claude Usage Monitor</div>
+        <div style="font-weight: 600; margin-bottom: 4px; color: var(--text-secondary);">ClaudeStat</div>
         <div>Version ${version}</div>
       </footer>
     </div>

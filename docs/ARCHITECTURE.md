@@ -1,6 +1,6 @@
 # Architecture
 
-The Claude Usage Monitor extension is built as a Manifest V3 compliant Chrome extension. It strictly separates concerns into clearly defined modules.
+The ClaudeStat extension is built as a Manifest V3 compliant Chrome extension. It strictly separates concerns into clearly defined modules.
 
 ## Key Principles
 1. **Zero Build Tools:** The project uses plain ES Modules supported natively by modern browsers. No Webpack, Vite, or npm dependencies.

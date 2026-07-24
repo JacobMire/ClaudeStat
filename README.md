@@ -1,9 +1,9 @@
-# Claude Usage Monitor 📊
+# ClaudeStat 📊
 
 A sleek, premium, and lightning-fast Chrome Extension that lets you track your Claude.ai Pro usage directly from your browser toolbar. No more guessing when your limits reset!
 
 <p align="center">
-  <img src="assets/showcase.jpg" width="800" alt="Claude Usage Monitor Demo">
+  <img src="assets/showcase.jpg" width="800" alt="ClaudeStat Demo">
 </p>
 
 ## ✨ Features
