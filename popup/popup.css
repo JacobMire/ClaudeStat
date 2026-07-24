@@ -288,6 +288,27 @@ header {
   background-color: var(--error);
 }
 
+/* Weekly track segments (divides the track into 7 days) */
+.track-weekly::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--radius-full);
+  /* Creates 6 vertical gaps to make 7 segments */
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent,
+    transparent calc(100% / 7 - 2px),
+    var(--bg-surface) calc(100% / 7 - 2px),
+    var(--bg-surface) calc(100% / 7)
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
 /* Secondary Model List */
 .model-list {
   display: flex;
