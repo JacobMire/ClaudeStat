@@ -8,12 +8,15 @@ import { applyTheme } from '../lib/ui/theme.js';
 import { getSettings } from '../lib/storage/settings.js';
 import { renderSkeleton, renderUsage, renderError, setContentState } from '../lib/ui/renderer.js';
 import { getUsageCache } from '../lib/storage/cache.js';
+import { getAnalytics } from '../lib/storage/analytics.js';
+import { calculateProjections } from '../lib/utils/analyticsEngine.js';
 import { getMsRemaining, formatDuration } from '../lib/utils/time.js';
 import { countUp } from '../lib/ui/animations.js';
 
 let currentSettings = null;
 let countdownInterval = null;
 let hasRenderedUsage = false;
+let currentAnalytics = null;
 
 async function init() {
   logger.info('Popup initialized');
@@ -48,7 +51,9 @@ async function loadData(forceRefresh = false) {
   
   if (cachedData) {
     logger.debug('Rendering from cache first', { isStale: cachedData.isStale });
-    _renderAndAnimate(cachedData);
+    const freshAnalyticsHistory = await getAnalytics();
+    currentAnalytics = calculateProjections(freshAnalyticsHistory);
+    _renderAndAnimate(cachedData, null, currentAnalytics);
     
     // If we have fresh cache and it's not a manual refresh, we can skip fetching
     if (!cachedData.isStale && !forceRefresh) {
@@ -73,7 +78,10 @@ async function loadData(forceRefresh = false) {
 
     if (response && response.success) {
       logger.info('Received fresh data from SW');
-      _renderAndAnimate(response.data);
+      getAnalytics().then(freshAnalyticsHistory => {
+        currentAnalytics = calculateProjections(freshAnalyticsHistory);
+        _renderAndAnimate(response.data, null, currentAnalytics);
+      });
     } else {
       logger.warn('Received error from SW', { error: response?.error });
       renderError(response?.error, cachedData);
@@ -82,8 +90,8 @@ async function loadData(forceRefresh = false) {
   });
 }
 
-function _renderAndAnimate(data) {
-  renderUsage(data, null, hasRenderedUsage);
+function _renderAndAnimate(data, error = null, analytics = null) {
+  renderUsage(data, error, false, analytics);
   setContentState('usage');
   startCountdown();
 
