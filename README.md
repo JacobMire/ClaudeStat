@@ -61,6 +61,12 @@ Yes! You are 100% safe to push this codebase publicly. Your cookies, auth info, 
 
 Because the extension relies entirely on the browser dynamically attaching your active session at runtime, there are zero hardcoded secrets. If anyone downloads your code, it will simply look at *their* browser's cookies and fetch *their* usage data. Your account is completely isolated.
 
+## ⚠️ Disclaimer
+
+This extension relies on an undocumented, internal Claude.ai API to fetch usage data. Because it is not an official public API, Anthropic may change the data structure or endpoint at any time. If that happens, the extension may temporarily stop working until the `lib/api/normalizer.js` file is updated to match their new schema. 
+
+*This project is not affiliated with, endorsed by, or sponsored by Anthropic.*
+
 ## 📄 License
 
 MIT License - feel free to fork, modify, and distribute!
