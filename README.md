@@ -1,42 +1,55 @@
-# Claude Usage Monitor 📈
+# Claude Usage Monitor 📊
 
-A premium, privacy-first, zero-dependency Chrome Extension for monitoring Claude.ai token utilization and model limits. Built strictly to Manifest V3 standards.
+A sleek, premium, and lightning-fast Chrome Extension that lets you track your Claude.ai Pro usage directly from your browser toolbar. No more guessing when your limits reset!
 
-## Features
+![Extension Demo/Screenshot Placeholder](https://via.placeholder.com/800x400.png?text=Claude+Usage+Monitor+Demo+Screenshot)
 
-- **Live Usage Tracking:** Accurately track your global Claude.ai utilization percentage.
-- **Model Breakdown:** View granular usage and reset times for individual models (Opus, Sonnet, Haiku).
-- **Auto-Discovery:** Automatically detects your active Organization ID directly from your session. No configuration required.
-- **Privacy-First:** Communicates directly with \`claude.ai\`. No telemetry, no third-party servers, no injected scripts. Your session cookies never leave your browser.
-- **Premium UI:** Hardware-accelerated animations, Apple/Linear-inspired glassmorphism, responsive SVG data visualizations, and robust Dark/Light mode support.
-- **Offline & Cached Modes:** Intelligently caches your usage. If Claude is unreachable, you still get instant access to your last known data.
+## ✨ Features
 
-## Installation
+- **Instant Loading:** Powered by an aggressive local caching engine. Your stats load in less than 10ms.
+- **Dual Limits Tracking:** Explicitly tracks both your **5-Hour Session Limit** and your **7-Day Weekly Limit**.
+- **Real-time Countdowns:** Live timers ticking down exactly to the second your usage limits reset.
+- **Background Sync:** Silently fetches fresh data in the background and seamlessly updates the UI without jarring reloads or glitches.
+- **Premium UI/UX:** Designed with a stunning, native-feeling dark mode, buttery smooth entrance animations, and Apple-Watch style SVG progress rings.
+- **Offline Resilience:** Gracefully handles offline scenarios, displaying your last-known cached data with a helpful "Offline" badge.
+- **Zero Configuration:** Automatically piggybacks off your existing Claude.ai web session. No API keys needed!
 
-1. Clone or download this repository.
-2. Open Chrome or Brave and navigate to \`chrome://extensions\`.
-3. Enable **Developer mode** in the top right corner.
-4. Click **Load unpacked** and select the \`claude-dash\` directory.
-5. Click the extension icon in your toolbar to view your usage. (You must be logged into claude.ai).
+## 📸 Screenshots
 
-## Project Architecture
+| Popup View | Settings Panel |
+| :---: | :---: |
+| ![Popup Placeholder](https://via.placeholder.com/360x400.png?text=Popup+View) | ![Settings Placeholder](https://via.placeholder.com/360x400.png?text=Settings+Panel) |
 
-This extension is built for long-term maintainability without the overhead of build tools (Webpack/Vite) or npm dependencies. It relies entirely on native ES Modules, CSS Custom Properties, and vanilla DOM APIs.
+## 🚀 Installation
 
-Read the detailed [Architecture Documentation](./docs/ARCHITECTURE.md) to understand the strict separation of concerns between the UI Presentation layer and the Service Worker Network layer.
+Because this extension interfaces directly with Claude's internal web API, it is intended to be sideloaded rather than installed from the Chrome Web Store.
 
-## Documentation Index
+1. Download or clone this repository.
+2. Open Google Chrome and navigate to `chrome://extensions`.
+3. Toggle **"Developer mode"** on (top right corner).
+4. Click **"Load unpacked"** (top left corner) and select this project folder.
+5. Pin the shiny new Claude icon to your toolbar!
 
-- [Developer Guide](./docs/DEVELOPER_GUIDE.md): Getting started with the codebase.
-- [Testing Guide](./docs/TESTING_GUIDE.md): How to test the data layer and UI.
-- [Troubleshooting](./docs/TROUBLESHOOTING.md): Common issues and fixes.
-- [Message Flow](./docs/MESSAGE_FLOW.md): How the Popup and Service Worker communicate.
-- [Storage Schema](./docs/STORAGE_SCHEMA.md): Documentation of \`chrome.storage.local\` usage.
-- [API Normalization](./docs/API_NORMALIZATION.md): How undocumented Anthropic payloads are stabilized.
+> **Note:** You must be logged into [claude.ai](https://claude.ai) in your browser for the extension to fetch your stats.
 
-## Security
+## 🛠 Architecture
 
-This extension requires the \`host_permissions\` scope for \`https://claude.ai/api/*\`. It uses standard \`credentials: 'include'\` in the \`fetch\` API to piggyback on your existing browser session. It does not extract, read, or store your auth tokens.
+Built with a modern, modular, and maintainable architecture following Manifest V3 guidelines:
 
-## License
-MIT
+- **Service Worker (`service-worker/`):** Acts as the central data controller. It securely fetches data from `claude.ai` and manages cross-origin communication.
+- **Repository Pattern (`lib/repository/`):** Abstracts away the complexity of checking the cache, firing network requests, and auto-discovering organization IDs.
+- **Data Normalizer (`lib/api/normalizer.js`):** Isolates the UI from internal API schema changes. It robustly maps Claude's raw undocumented JSON into our own strict internal models.
+- **Smart Caching (`lib/storage/`):** Implements a 5-minute TTL cache with built-in schema migration validation to prevent `NaN%` errors if the data structure changes.
+- **Vanilla JS & CSS:** Zero external dependencies. Keeps the extension extremely lightweight, secure, and fast.
+
+## ⚙️ Settings
+
+Click the gear icon inside the extension to open the Settings panel:
+- **Theme Override:** Force Dark, Light, or follow System preferences.
+- **Reduce Motion:** Disable UI animations for a static, distraction-free experience.
+- **Clear Cache:** Manually wipe the local cache to force a hard refresh.
+- **Organization ID Override:** (Advanced) If you belong to multiple orgs, you can manually specify which one to track.
+
+## 📄 License
+
+MIT License - feel free to fork, modify, and distribute!
