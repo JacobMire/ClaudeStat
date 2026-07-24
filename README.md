@@ -69,4 +69,4 @@ This extension relies on an undocumented, internal Claude.ai API to fetch usage 
 
 ## 📄 License
 
-MIT License - feel free to fork, modify, and distribute!
+feel free to fork, modify, and distribute!
