@@ -46,6 +46,21 @@ Click the gear icon inside the extension to open the Settings panel:
 - **Clear Cache:** Manually wipe the local cache to force a hard refresh.
 - **Organization ID Override:** (Advanced) If you belong to multiple orgs, you can manually specify which one to track.
 
+## 🔒 Security & Privacy
+
+This extension is designed with a **Zero Configuration** and **Zero Credential** philosophy. 
+
+**Is it safe to push this code to GitHub?**
+Yes! You are 100% safe to push this codebase publicly. Your cookies, auth info, and personal data are **NOT** hardcoded or stored anywhere in the codebase.
+
+**How does it authenticate?**
+1. The extension never explicitly asks for, touches, or saves your `sessionKey` or passwords.
+2. It uses Chrome's native `host_permissions` for `https://claude.ai/*`. This tells the browser: *"When this extension makes a background request to Claude.ai, please attach the user's existing Claude cookies automatically."*
+3. All requests happen securely within the memory of your local browser using the "Piggyback Method." 
+4. If you log out of Claude.ai in a regular Chrome tab, the extension instantly loses access. 
+
+Because the extension relies entirely on the browser dynamically attaching your active session at runtime, there are zero hardcoded secrets. If anyone downloads your code, it will simply look at *their* browser's cookies and fetch *their* usage data. Your account is completely isolated.
+
 ## 📄 License
 
 MIT License - feel free to fork, modify, and distribute!
