@@ -301,9 +301,9 @@ header {
   background-image: repeating-linear-gradient(
     to right,
     transparent,
-    transparent calc(100% / 7 - 2px),
-    var(--bg-surface) calc(100% / 7 - 2px),
-    var(--bg-surface) calc(100% / 7)
+    transparent calc(100% / 7 - 3px),
+    var(--bg-base) calc(100% / 7 - 3px),
+    var(--bg-base) calc(100% / 7)
   );
   pointer-events: none;
   z-index: 2;
