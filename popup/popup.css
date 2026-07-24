@@ -1,0 +1,447 @@
+/**
+ * @fileoverview Premium Design Token System and Base Styles.
+ * Inspired by Anthropic, Raycast, Arc, Apple, and Linear.
+ */
+
+:root {
+  /* DARK THEME (Default / Dark-first) */
+  --bg-base-dark: #000000;
+  --bg-surface-dark: #151515;
+  --bg-surface-hover-dark: #1f1f1f;
+  --bg-surface-elevated-dark: #1c1c1c;
+  --border-dark: rgba(255, 255, 255, 0.1);
+  --border-subtle-dark: rgba(255, 255, 255, 0.05);
+
+  --text-primary-dark: #f5f5f7;
+  --text-secondary-dark: #a1a1a6;
+  --text-tertiary-dark: #6e6e73;
+
+  --accent-dark: #d67055; /* Claude brand clay/orange */
+  --accent-faint-dark: rgba(214, 112, 85, 0.15);
+  --error-dark: #ff453a;
+  --success-dark: #32d74b;
+
+  --shadow-sm-dark: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md-dark: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-glass-dark: 0 4px 12px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+
+  /* LIGHT THEME */
+  --bg-base-light: #f5f5f7;
+  --bg-surface-light: #ffffff;
+  --bg-surface-hover-light: #f0f0f0;
+  --bg-surface-elevated-light: #ffffff;
+  --border-light: rgba(0, 0, 0, 0.08);
+  --border-subtle-light: rgba(0, 0, 0, 0.04);
+
+  --text-primary-light: #1d1d1f;
+  --text-secondary-light: #86868b;
+  --text-tertiary-light: #b0b0b5;
+
+  --accent-light: #c86348;
+  --accent-faint-light: rgba(200, 99, 72, 0.1);
+  --error-light: #e3342f;
+  --success-light: #34c759;
+
+  --shadow-sm-light: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md-light: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-glass-light: 0 4px 12px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.6);
+
+  /* Core Assignments (Default to Dark) */
+  --bg-base: var(--bg-base-dark);
+  --bg-surface: var(--bg-surface-dark);
+  --bg-surface-hover: var(--bg-surface-hover-dark);
+  --bg-surface-elevated: var(--bg-surface-elevated-dark);
+  --border: var(--border-dark);
+  --border-subtle: var(--border-subtle-dark);
+  
+  --text-primary: var(--text-primary-dark);
+  --text-secondary: var(--text-secondary-dark);
+  --text-tertiary: var(--text-tertiary-dark);
+  
+  --accent: var(--accent-dark);
+  --accent-faint: var(--accent-faint-dark);
+  --error: var(--error-dark);
+  --success: var(--success-dark);
+  
+  --shadow-sm: var(--shadow-sm-dark);
+  --shadow-md: var(--shadow-md-dark);
+  --shadow-glass: var(--shadow-glass-dark);
+
+  /* Shared Properties */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  
+  /* Apple system fonts give that premium native feel */
+  --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-family-mono: "SF Mono", "Menlo", "Monaco", "Courier New", monospace;
+}
+
+/* Light Theme Override */
+:root[data-theme="light"] {
+  --bg-base: var(--bg-base-light);
+  --bg-surface: var(--bg-surface-light);
+  --bg-surface-hover: var(--bg-surface-hover-light);
+  --bg-surface-elevated: var(--bg-surface-elevated-light);
+  --border: var(--border-light);
+  --border-subtle: var(--border-subtle-light);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --text-tertiary: var(--text-tertiary-light);
+  --accent: var(--accent-light);
+  --accent-faint: var(--accent-faint-light);
+  --error: var(--error-light);
+  --success: var(--success-light);
+  --shadow-sm: var(--shadow-sm-light);
+  --shadow-md: var(--shadow-md-light);
+  --shadow-glass: var(--shadow-glass-light);
+}
+
+/* Base DOM */
+body {
+  width: 360px;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; }
+
+/* Focus States */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Animations & Keyframes */
+@keyframes slideUpFade {
+  0% { opacity: 0; transform: translateY(12px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes drawStroke {
+  to { stroke-dashoffset: var(--target-offset); }
+}
+
+@keyframes fillWidth {
+  to { width: var(--target-width); }
+}
+
+/* Base Animation Classes */
+.animate-enter {
+  animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-enter-delay-1 {
+  animation-delay: 0.1s;
+}
+
+/* Reduced Motion Override (OS Preference or User Setting) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body.reduced-motion *,
+body.reduced-motion *::before,
+body.reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Header/Toolbar */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--bg-base);
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.header-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.icon-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.icon-button:hover {
+  background-color: var(--bg-surface-hover);
+  color: var(--text-primary);
+  transform: scale(1.05);
+}
+
+.icon-button:active {
+  transform: scale(0.95);
+}
+
+/* Main Content Area */
+#content {
+  padding: 16px;
+  min-height: 240px;
+  transition: opacity 0.3s ease;
+}
+
+/* Utility */
+.hidden { display: none !important; }
+
+/* Cards (Linear style) */
+.card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-glass);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Main Usage Hero */
+.hero-val {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.hero-sub {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+/* Linear Progress Bar */
+.track {
+  width: 100%;
+  height: 6px;
+  background-color: var(--bg-surface-hover);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-top: 16px;
+  position: relative;
+}
+
+.track-fill {
+  height: 100%;
+  background-color: var(--accent);
+  border-radius: var(--radius-full);
+  width: 0%; /* Initial state for animation */
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+}
+
+.track-fill.warning {
+  background-color: var(--error);
+}
+
+/* Secondary Model List */
+.model-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.model-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.model-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.model-name {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.model-meta {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+/* SVG Circular Progress (Apple Watch style) */
+.circular-progress {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.circular-progress svg {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.circular-progress circle {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.circular-progress .bg {
+  stroke: var(--bg-surface-hover);
+}
+
+.circular-progress .fg {
+  stroke: var(--accent);
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100; /* Initial state */
+  transition: stroke-dashoffset 1s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.3s ease;
+}
+
+.circular-progress .fg.warning {
+  stroke: var(--error);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.badge-stale {
+  background-color: var(--accent-faint);
+  color: var(--accent);
+}
+
+/* Empty / Error States */
+.state-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px 16px;
+}
+
+.state-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  color: var(--text-tertiary);
+}
+
+.state-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.state-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.btn-primary {
+  background-color: var(--text-primary);
+  color: var(--bg-base);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Settings Panel (Slide-in) */
+#settings-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-base);
+  z-index: 100;
+  display: none;
+  flex-direction: column;
+}
+
+#settings-panel.open {
+  display: flex;
+}
+
+/* Custom Webkit Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border: 3px solid var(--bg-base);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
