@@ -308,45 +308,37 @@ header {
   z-index: 2;
 }
 
-/* Today Marker for Weekly Track */
-.today-marker {
-  position: absolute;
-  top: 0;
-  font-size: 9px;
+/* Weekly Days Labels */
+.weekly-days-row {
+  display: flex;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.day-label {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.day-label span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.day-label.today span {
+  background-color: var(--text-primary);
+  color: var(--bg-base);
   font-weight: 700;
-  text-transform: uppercase;
-  color: var(--text-primary);
-  transform: translateX(-50%);
-  background: var(--bg-surface-hover);
-  padding: 2px 6px;
-  border-radius: 4px;
-  letter-spacing: 0.05em;
-  z-index: 3;
-  border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-sm);
-}
-
-.today-marker::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 4px;
-  border-style: solid;
-  border-color: var(--border-subtle) transparent transparent transparent;
-}
-
-.today-marker::before {
-  content: '';
-  position: absolute;
-  top: calc(100% - 1px);
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 3px;
-  border-style: solid;
-  border-color: var(--bg-surface-hover) transparent transparent transparent;
-  z-index: 1;
 }
 
 /* Secondary Model List */
