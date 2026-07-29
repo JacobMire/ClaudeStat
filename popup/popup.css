@@ -321,19 +321,22 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3px;
+  gap: 4px;
 }
 
 .day-label span {
-  font-size: 9px;
-  font-weight: 500;
+  font-size: 8.5px;
+  font-weight: 600;
   color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   transition: all 0.2s ease;
 }
 
 .day-label.today span {
   color: var(--text-primary);
   font-weight: 700;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
 }
 
 /* Minimalist dot underneath the current day */
@@ -343,11 +346,12 @@ header {
   height: 3px;
   border-radius: 50%;
   background-color: transparent;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .day-label.today::after {
-  background-color: var(--text-primary);
+  background-color: var(--accent);
+  box-shadow: 0 0 6px var(--accent-faint);
 }
 
 /* Secondary Model List */
