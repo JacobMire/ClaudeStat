@@ -68,9 +68,9 @@
   --shadow-glass: var(--shadow-glass-dark);
 
   /* Shared Properties */
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 20px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
   --radius-full: 9999px;
   
   /* Apple system fonts give that premium native feel */
@@ -109,8 +109,7 @@ body {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  border-radius: 16px;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 *, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; }
