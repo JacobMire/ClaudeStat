@@ -318,27 +318,36 @@ header {
 .day-label {
   flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 3px;
 }
 
 .day-label span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 9px;
+  font-weight: 500;
   color: var(--text-tertiary);
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
   transition: all 0.2s ease;
 }
 
 .day-label.today span {
-  background-color: var(--text-primary);
-  color: var(--bg-base);
+  color: var(--text-primary);
   font-weight: 700;
+}
+
+/* Minimalist dot underneath the current day */
+.day-label::after {
+  content: '';
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.day-label.today::after {
+  background-color: var(--text-primary);
 }
 
 /* Secondary Model List */
