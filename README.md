@@ -58,8 +58,7 @@ Click the gear icon inside the extension to open the Settings panel:
 
 This extension is designed with a **Zero Configuration** and **Zero Credential** philosophy. 
 
-**Is it safe to push this code to GitHub?**
-Yes! You are 100% safe to push this codebase publicly. Your cookies, auth info, and personal data are **NOT** hardcoded or stored anywhere in the codebase.
+Your cookies, auth info, and personal data are **NOT** hardcoded or stored anywhere in the codebase.
 
 **How does it authenticate?**
 1. The extension never explicitly asks for, touches, or saves your `sessionKey` or passwords.
