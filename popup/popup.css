@@ -308,6 +308,47 @@ header {
   z-index: 2;
 }
 
+/* Today Marker for Weekly Track */
+.today-marker {
+  position: absolute;
+  top: 0;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  transform: translateX(-50%);
+  background: var(--bg-surface-hover);
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  z-index: 3;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+.today-marker::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: var(--border-subtle) transparent transparent transparent;
+}
+
+.today-marker::before {
+  content: '';
+  position: absolute;
+  top: calc(100% - 1px);
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 3px;
+  border-style: solid;
+  border-color: var(--bg-surface-hover) transparent transparent transparent;
+  z-index: 1;
+}
+
 /* Secondary Model List */
 .model-list {
   display: flex;
