@@ -11,7 +11,7 @@ A sleek, premium, and lightning-fast Chrome Extension that lets you track your C
 - **Analytics Engine:** A built-in math engine that analyzes your recent usage to calculate a live Burn Rate, your Recent Usage volume, and mathematically projects your time until 100% exhaustion.
 - **Instant Loading:** Powered by an aggressive local caching engine with stale-while-revalidate logic. Your stats load in less than 10ms.
 - **Dual Limits Tracking:** Explicitly tracks both your **5-Hour Session Limit** and your **7-Day Weekly Limit**.
-- **Real-time Countdowns:** Live timers ticking down exactly to the second your usage limits reset.
+- **Real-time Countdowns & Exact Times:** Live timers ticking down exactly to the second your usage limits reset, displayed alongside your localized absolute clock reset time (e.g., "4:50 PM").
 - **Background Sync:** Silently fetches fresh data in the background and seamlessly updates the UI without jarring reloads or glitches.
 - **Premium UI/UX:** Designed with a stunning, native-feeling dark mode, buttery smooth entrance animations, custom CSS tooltips, and Apple-Watch style SVG progress rings.
 - **Offline Resilience:** Gracefully handles offline scenarios, displaying your last-known cached data with a helpful "Offline" badge.
